@@ -384,11 +384,6 @@
     "body": ["System.Console.WriteLine(\"${1:Hello World!}\");"],
     "description": "Creates a C# 9 top-level statement"
   },
-  "Creates a TODO comment": {
-    "prefix": "todo",
-    "body": ["// TODO: $0"],
-    "description": "Creates a TODO comment"
-  },
   "Creates a try catch": {
     "prefix": "try",
     "body": [
@@ -412,7 +407,7 @@
       "}",
       "catch (${1:System.Exception} ex)",
       "{",
-      "\t // TODO",
+      "\t // Body",
       "}",
       "finally",
       "{",
