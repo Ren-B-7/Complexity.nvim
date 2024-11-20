@@ -145,9 +145,9 @@ return {
 					["lua_ls"] = function()
 						require("lspconfig").lua_ls.setup(lua_ls_opts)
 					end,
-					["omnisharp"] = function()
-						require("csharp").setup()
-					end,
+					--["omnisharp"] = function()
+					--	require("csharp").setup()
+					--end,
 					["basedpyright"] = function()
 						require("lspconfig").basedpyright.setup(basedpyright_opts)
 					end,
