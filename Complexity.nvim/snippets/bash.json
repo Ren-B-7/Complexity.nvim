@@ -1445,7 +1445,7 @@
       "curl --request ${1|GET,POST,DELETE,PUT|} -sL \\",
       "\t--user-agent '${2|Shellman,Your custom user agent|}' \\",
       "\t--cookie ${3|'key=value',\"${key}=${value}\"|} \\",
-      "\t--url ${4|'http://example.com',\"${url}\"|}\n"
+      "\t--url ${4|'https://example',\"${url}\"|}\n"
     ],
     "description": "send http request with cookies, using curl"
   },
@@ -1455,7 +1455,7 @@
       "curl --request ${1|GET,POST|} -sL \\",
       "\t--user-agent '${2|Shellman,Your custom user agent|}' \\",
       "\t--output ${3|'/path/to/file',\"${pathToFile}\"|} \\",
-      "\t--url ${4|'http://example.com/file.zip',\"${downloadUrl}\"|}\n"
+      "\t--url ${4|'https://example.zip',\"${downloadUrl}\"|}\n"
     ],
     "description": "download from url and save to /path/to/file, using curl"
   },
@@ -1464,7 +1464,7 @@
     "body": [
       "curl --request ${1|GET,DELETE|} -sL \\",
       "\t--user-agent '${2|Shellman,Your custom user agent|}' \\",
-      "\t--url ${3|'http://example.com',\"${url}\"|}\n"
+      "\t--url ${3|'https://example',\"${url}\"|}\n"
     ],
     "description": "send http GET/DELETE request using curl"
   },
@@ -1474,7 +1474,7 @@
       "curl --request ${1|GET,POST,DELETE,PUT|} -sL \\",
       "\t--user-agent '${2|Shellman,Your custom user agent|}' \\",
       "\t--header ${3|'key: value',\"${key}\": \"${value}\"|} \\",
-      "\t--url ${4|'http://example.com',\"${url}\"|}\n"
+      "\t--url ${4|'https://example',\"${url}\"|}\n"
     ],
     "description": "send http request with custom header, using curl"
   },
@@ -1483,7 +1483,7 @@
     "body": [
       "curl --request ${1|POST,PUT|} -sL \\",
       "\t--user-agent '${2|Shellman,Your custom user agent|}' \\",
-      "\t--url ${3|'http://example.com',\"${url}\"|} \\",
+      "\t--url ${3|'https://example',\"${url}\"|} \\",
       "\t--data ${4|'key=value',\"${key}\"=\"${value}\"|} \n"
     ],
     "description": "send data with http POST/PUT, using curl"
@@ -1493,7 +1493,7 @@
     "body": [
       "curl --request POST -sL \\",
       "\t--user-agent '${1|Shellman,Your custom user agent|}' \\",
-      "\t--url ${2|'http://example.com',\"${url}\"|} \\",
+      "\t--url ${2|'https://url',\"${url}\"|} \\",
       "\t--form ${3|'key=value',\"${key}\"=\"${value}\"|} \\",
       "\t--form ${4|'file=@/path/to/file',file=@\"${pathToFile}\"|}\n"
     ],
