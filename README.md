@@ -25,60 +25,60 @@ fd-find
 
 # Plugins listed
 Tick mark displays enabled/ disabled on default config  
-## Plugin loader
-- [x] [lazy.nvim](https://github.com/folke/lazy.nvim) (gods gift)
+## Plugin loader  
+- [x] [lazy.nvim](https://github.com/folke/lazy.nvim) (gods gift)  
 
 ## Protocols
-- [x] [mason.nvim](https://github.com/williamboman/mason.nvim)
+- [x] [mason.nvim](https://github.com/williamboman/mason.nvim)  
 
 ### Lsp
-- [x] [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [x] [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)  
 - [x] [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)  
-          - mason
-- [x] [nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations)
-- [x] [lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim)
-- [x] [garbage-day.nvim](https://github.com/zeioth/garbage-day.nvim)
-- [x] [lspkind.nvim](https://github.com/onsails/lspkind.nvim)
+          - mason  
+- [x] [nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations)  
+- [x] [lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim)  
+- [x] [garbage-day.nvim](https://github.com/zeioth/garbage-day.nvim)  
+- [x] [lspkind.nvim](https://github.com/onsails/lspkind.nvim)  
 
 ### Completion specific  
 
-- [x] [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [x] [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- [x] [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
-- [x] [cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
-- [x] [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
-- [x] [cmp-calc](https://github.com/hrsh7th/cmp-calc)
-- [x] [cmp-async-path](https://github.com/FelipeLema/cmp-async-path)
+- [x] [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)  
+- [x] [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)  
+- [x] [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)  
+- [x] [cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)  
+- [x] [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)  
+- [x] [cmp-calc](https://github.com/hrsh7th/cmp-calc)  
+- [x] [cmp-async-path](https://github.com/FelipeLema/cmp-async-path)  
 - [x] [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)  
-          - lua snip
+          - lua snip  
 - [x] [cmp-rg](https://github.com/lukas-reineke/cmp-rg)  
-          - ripgrep
-- [x] [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+          - ripgrep  
+- [x] [nvim-autopairs](https://github.com/windwp/nvim-autopairs)   
 
 ### Snippets
-- [x] [LuaSnip](https://github.com/L3MON4D3/LuaSnip) (snippet loader)
-- [x] [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) (snippet repo)
-- [x] [nvim-scissors](https://github.com/chrisgrieser/nvim-scissors) (snippet generator)
-          - telescope
+- [x] [LuaSnip](https://github.com/L3MON4D3/LuaSnip) (snippet loader)  
+- [x] [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) (snippet repo)  
+- [x] [nvim-scissors](https://github.com/chrisgrieser/nvim-scissors) (snippet generator)  
+          - telescope  
 
 ### Formatting
-- [x] [conform.nvim](https://github.com/stevearc/conform.nvim)
+- [x] [conform.nvim](https://github.com/stevearc/conform.nvim)  
 - [x] [mason-conform.nvim](https://github.com/zapling/mason-conform.nvim)  
-          - mason
+          - mason  
 
 ### Linting
-- [x] [nvim-lint](https://github.com/mfussenegger/nvim-lint)
+- [x] [nvim-lint](https://github.com/mfussenegger/nvim-lint)  
 - [x] [mason-nvim-lint](https://github.com/rshkarin/mason-nvim-lint)  
-          - mason
+          - mason  
 
 ### Debug adapter
-- [x] [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+- [x] [nvim-dap](https://github.com/mfussenegger/nvim-dap)  
 - [x] [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)  
-          - mason
-- [x] [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
-            - [nvim-nio](https://github.com/nvim-neotest/nvim-nio)
+          - mason  
+- [x] [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)  
+            - [nvim-nio](https://github.com/nvim-neotest/nvim-nio)  
 
-- [x] [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
+- [x] [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)  
 
 ## TreeSitter
   
@@ -86,67 +86,67 @@ Tick mark displays enabled/ disabled on default config
 - [x] [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (Code highlighter)  
 
 ### Treesitter additions
-- [x] [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
-- [x] [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) (highlight indent scope)
-- [x] [ts-comments.nvim](https://github.com/folke/ts-comments.nvim) (Override TS comments)
-- [x] [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim) (Highlight brackets)
-          - indent blankline
+- [x] [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  
+- [x] [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) (highlight indent scope)  
+- [x] [ts-comments.nvim](https://github.com/folke/ts-comments.nvim) (Override TS comments)  
+- [x] [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim) (Highlight brackets)  
+          - indent blankline  
 
 ## File explorer
-- [x] [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
-- [x] [harpoon](https://github.com/ThePrimeagen/harpoon) (Move faster with marks)
-          - plenary
+- [x] [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)  
+- [x] [harpoon](https://github.com/ThePrimeagen/harpoon) (Move faster with marks)  
+          - plenary  
 
 ## Telescope
 
 ### Telescope
-- [x] [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [x] [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)  
 
 ### Telescope additions  
 
-- [x] [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
-- [x] [telescope-frecency.nvim](https://github.com/nvim-telescope/telescope-frecency.nvim)
-- [x] [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim)
+- [x] [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)  
+- [x] [telescope-frecency.nvim](https://github.com/nvim-telescope/telescope-frecency.nvim)  
+- [x] [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim)  
 - [x] [telescope-luasnip.nvim](https://github.com/benfowler/telescope-luasnip.nvim)  
-          - luasnip
+          - luasnip  
 - [x] [telescope-git-diffs.nvim](https://github.com/paopaol/telescope-git-diffs.nvim)  
-          - git
+          - git  
 - [x] [telescope-zoxide](https://github.com/jvgrootveld/telescope-zoxide)  
           - zoxide  
-- [x] [telescope-ports.nvim](https://github.com/LinArcX/telescope-ports.nvim)
-- [x] [nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)
+- [x] [telescope-ports.nvim](https://github.com/LinArcX/telescope-ports.nvim)  
+- [x] [nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)  
 
 ## Git
 - [x] [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)  
-          - lazy git
-- [x] [mini-git](https://github.com/echasnovski/mini-git)
-- [x] [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+          - lazy git  
+- [x] [mini-git](https://github.com/echasnovski/mini-git)  
+- [x] [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)  
 - [x] [neogit](https://github.com/NeogitOrg/neogit)  
-          - [diffview.nvim](https://github.com/sindrets/diffview.nvim)
+          - [diffview.nvim](https://github.com/sindrets/diffview.nvim)  
 
 ## Terminal plugins
-- [ ] [wezterm.nvim](https://github.com/willothy/wezterm.nvim) (auto detects to enable)
-- [x] [neoterm](https://github.com/kassio/neoterm)
-- [x] [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- [ ] [wezterm.nvim](https://github.com/willothy/wezterm.nvim) (auto detects to enable)  
+- [x] [neoterm](https://github.com/kassio/neoterm)  
+- [x] [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)  
 
 ## Sessions and projects
-- [x] [auto-session](https://github.com/rmagatti/auto-session)
-- [x] [project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- [x] [auto-session](https://github.com/rmagatti/auto-session)  
+- [x] [project.nvim](https://github.com/ahmedkhalf/project.nvim)  
 
 ## Window manager
 - [x] [windows.nvim](https://github.com/anuvyklack/windows.nvim)  
-          - [middleclass](https://github.com/anuvyklack/middleclass)
+          - [middleclass](https://github.com/anuvyklack/middleclass)  
 
 ## Breadcrumbs/ winbar
-- [x] [nvim-navic](https://github.com/SmiteshP/nvim-navic)
-- [x] [barbecue.nvim](https://github.com/utilyre/barbecue.nvim)
+- [x] [nvim-navic](https://github.com/SmiteshP/nvim-navic)  
+- [x] [barbecue.nvim](https://github.com/utilyre/barbecue.nvim)  
 
 ## Status column
-- [x] [modicator.nvim](https://github.com/mawkler/modicator.nvim)
+- [x] [modicator.nvim](https://github.com/mawkler/modicator.nvim)  
 
 ## Bufferline
 - [x] [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)  
-          - [scope.nvim](https://github.com/tiagovla/scope.nvim)
+          - [scope.nvim](https://github.com/tiagovla/scope.nvim)  
 
 ## Quality of life
 - [x] [trouble.nvim](https://github.com/folke/trouble.nvim) (Show lsp/ syntax issues errors)  
@@ -210,59 +210,59 @@ Tick mark displays enabled/ disabled on default config
 
 ## Plugins by language
 ### csharp
-- [ ] [dotnet.nvim](https://github.com/MoaidHathot/dotnet.nvim)
+- [ ] [dotnet.nvim](https://github.com/MoaidHathot/dotnet.nvim)  
 - [ ] [csharp.nvim](https://github.com/Ren-B-7/csharp.nvim)  
-          - [structlog.nvim](https://github.com/Tastyep/structlog.nvim)
+          - [structlog.nvim](https://github.com/Tastyep/structlog.nvim)  
 ### Lua
 - [ ] [lazydev.nvim](https://github.com/folke/lazydev.nvim)  
           - [luvit-meta](https://github.com/Bilal2453/luvit-meta)  
 ### Rust
-- [ ] [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
-- [ ] [crates.nvim](https://github.com/saecki/crates.nvim)
+- [ ] [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)  
+- [ ] [crates.nvim](https://github.com/saecki/crates.nvim)  
 ### Ruby
-- [ ] [vim-rails](https://github.com/tpope/vim-rails)
+- [ ] [vim-rails](https://github.com/tpope/vim-rails)  
 ### Swift
-- [ ] [swift.nvim](https://github.com/m-housh/swift.nvim)
+- [ ] [swift.nvim](https://github.com/m-housh/swift.nvim)  
 ### Typescript
-- [ ] [typescript-tools-nvim](https://github.com/pmizio/typescript-tools.nvim)
-- [ ] [typescript-error-translator](https://github.com/dmmulroy/ts-error-translator.nvim)
+- [ ] [typescript-tools-nvim](https://github.com/pmizio/typescript-tools.nvim)  
+- [ ] [typescript-error-translator](https://github.com/dmmulroy/ts-error-translator.nvim)  
 ### Yaml
-- [ ] [yaml.nvim](https://github.com/cuducos/yaml.nvim)
-- [ ] [yaml_companion](https://github.com/cuducos/someone-stole-my-name/yaml-companion.nvim)
+- [ ] [yaml.nvim](https://github.com/cuducos/yaml.nvim)  
+- [ ] [yaml_companion](https://github.com/cuducos/someone-stole-my-name/yaml-companion.nvim)  
 ### Micropy
 - [ ] [micropy.nvim](https://github.com/jim-at-jibba/micropython.nvim)  
           - toggleterm  
           - dressing.nvim  
 ### Powershell
-- [ ] [powershell.nvim](https://github.com/TheLeoP/powershell.nvim)
+- [ ] [powershell.nvim](https://github.com/TheLeoP/powershell.nvim)  
 ### PHP
 - [ ] [phpactor.nvim](https://github.com/gbprod/phpactor.nvim)  
           - plenary  
           - lsp config  
 - [ ] [php.easy.nvim](https://github.com/ta-tikoma/php.easy.nvim)  
-          - lua snip
+          - lua snip  
 ### markdown
-- [ ] [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
-- [ ] [markdown-toc](https://github.com/ChuufMaster/markdown-toc)
-- [ ] [edit-markdown-table.nvim](https://github.com/kiran94/edit-markdown-table.nvim)
-          - tree sitter
+- [ ] [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)  
+- [ ] [markdown-toc](https://github.com/ChuufMaster/markdown-toc)  
+- [ ] [edit-markdown-table.nvim](https://github.com/kiran94/edit-markdown-table.nvim)  
+          - tree sitter  
 ### json
-- [ ] [nvim-jqx](https://github.com/gennaro-tedesco/nvim-jqx)
+- [ ] [nvim-jqx](https://github.com/gennaro-tedesco/nvim-jqx)  
 ### java
-- [ ] [nvim-java](https://github.com/nvim-java/nvim-java)
-          - lsp config
+- [ ] [nvim-java](https://github.com/nvim-java/nvim-java)  
+          - lsp config  
 ### go
-- [ ] [go.nvim](https://github.com/ray-x/go.nvim)
+- [ ] [go.nvim](https://github.com/ray-x/go.nvim)  
           - lsp config
           - treesitter
-          - [guihua.lua](https://github.com/ray-x/guihua.lua)
-- [ ] [nvim-go](https://github.com/crispgm/nvim-go)
+          - [guihua.lua](https://github.com/ray-x/guihua.lua)  
+- [ ] [nvim-go](https://github.com/crispgm/nvim-go)  
           - lsp config
           - plenary
 ### flutter-dart-tailwind
-- [ ] [rest.nvim](https://github.com/rest-nvim/rest.nvim)
-- [ ] [tailwindcss-colorizer-cmp.nvim](https://github.com/roobert/tailwindcss-colorizer-cmp.nvim)
-- [ ] [flutter-tools.nvim](https://github.com/nvim-flutter/flutter-tools.nvim)
+- [ ] [rest.nvim](https://github.com/rest-nvim/rest.nvim)  
+- [ ] [tailwindcss-colorizer-cmp.nvim](https://github.com/roobert/tailwindcss-colorizer-cmp.nvim)  
+- [ ] [flutter-tools.nvim](https://github.com/nvim-flutter/flutter-tools.nvim)  
           - plenary
           - dressing
           - dap
