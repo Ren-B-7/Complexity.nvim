@@ -1,0 +1,46 @@
+{
+    "UserSecretsId": {
+        "prefix": "csproj-user-secrets",
+        "body": [
+            "<UserSecretsId>${1:${TM_FILENAME_BASE/[\\.]/-/}-${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}-${CURRENT_HOUR}-${CURRENT_MINUTE}-${CURRENT_SECOND}}</UserSecretsId>"
+        ]
+    },
+    "CodeAnalysisRuleSet": {
+        "prefix": "csproj-ruleset",
+        "body": [
+            "<CodeAnalysisRuleSet>${1:global.ruleset}</CodeAnalysisRuleSet>"
+        ]
+    },
+    "Content to CopyToPublishDirectory": {
+        "prefix": "csproj-copy-to-publish",
+        "body": [
+            "<Content Include=\"${1:files\\**\\*}\" CopyToPublishDirectory=\"${2|PreserveNewest,Always,Never|}\" />"
+        ]
+    },
+    "LangVersion": {
+        "prefix": "csproj-lang-version",
+        "body": [
+            "<LangVersion>${1|latest,latestMajor,preview,8.0,7.3,7.2,7.1,7|}</LangVersion>"
+        ]
+    },
+    "Nullable": {
+        "prefix": "csproj-nullable",
+        "body": [
+            "<Nullable>${1|enable,warnings,annotations,disable|}</Nullable>"
+        ]
+    },
+    "Exec before Build": {
+        "prefix": "csproj-exec-before-build",
+        "body": [
+            "<Target Name=\"${1:Name}\" BeforeTargets=\"Build\">",
+            "\t<Exec Command=\"${2:Command}\" />",
+            "</Target>"
+        ]
+    },
+    "Condition - if (not) Release": {
+        "prefix": "csproj-if-release",
+        "body": [
+            "Condition=\" '$(Configuration)' ${1|==,!=|} 'Release' \""
+        ]
+    }
+}
