@@ -73,20 +73,3 @@ return {
 		},
 	},
 }
--- TODO:
--- REMEMBER:
--- INFO:
--- HACK:
--- WARN,
--- XXX!
--- TEST-
--- PASSED:
--- PERFORMANCE,
--- PERF,
--- OPTIMIZE/
--- OPTIM:
--- FAILED\
--- FIX\
--- BUG/
--- FIXME!
--- ISSUE,
