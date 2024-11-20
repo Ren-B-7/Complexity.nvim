@@ -1,7 +1,7 @@
 return {
 	{
 		"Ren-B-7/csharp.nvim",
-		enabled = true,
+		enabled = false,
 		lazy = true,
 		ft = { "cs", "csx", "csproj", "sln" },
 		dependencies = {
