@@ -2,39 +2,39 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-source "/home/renier/antigen.zsh"
+source "$HOME/antigen.zsh"
 
 antigen theme romkatv/powerlevel10k
 
 antigen use oh-my-zsh
 
-#package manager/ env support
-#antigen bundle git
-#antigen bundle rvm
-#antigen bundle pyenv
-#antigen bundle nvm
-#antigen bundle npm
-#antigen bundle pip
-#antigen bundle gem
+# package manager/ env support
+# antigen bundle git
+# antigen bundle rvm
+# antigen bundle pyenv
+# antigen bundle nvm
+# antigen bundle npm
+# antigen bundle pip
+# antigen bundle gem
 
-# #language support
-#antigen bundle perl
-#antigen bundle ruby
-#antigen bundle python
+# language support
+# antigen bundle perl
+# antigen bundle ruby
+# antigen bundle python
 
-# #os support
-#antigen bundle ubuntu
+# os support
+# antigen bundle ubuntu
 
-#antigen bundle zoxide
-#antigen bundle history
+# antigen bundle zoxide
+# antigen bundle history
 
-#antigen bundle asdf
-#antigen bundle cpanm
+# antigen bundle asdf
+# antigen bundle cpanm
 
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -55,17 +55,22 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
 eval "$(zoxide init zsh)"
-alias cd="z"
 
 # Start of .bashrc
 
-export CARGOINSTALLPATH="$HOME/.cargo/bin"
+export CARGOINSTALLPATH="$HOME/.cargo/bin/"
 export PATH="$CARGOINSTALLPATH:$PATH"
+
+export MASON_INSTALLED_LSPS="$HOME/.local/share/Simplexity.nvim/mason/bin/"
+export PATH="$MASON_INSTALLED_LSPS:$PATH"
 
 eval "$(rbenv init -)"
 
 # GVM init
-[[ -s "/home/renier/.gvm/scripts/gvm" ]] && source "/home/renier/.gvm/scripts/gvm"
+# /home/renier/.gvm/bin
+export GOINSTALLPATH="$HOME/.gvm/bin/"
+export PATH="$GOINSTALLPATH:$PATH"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # NVM init
 
@@ -78,7 +83,7 @@ export SUDO_ASKPASS=/usr/bin/gnome-ssh-askpass
 # >>> juliaup initialize >>>
 # !! Contents within this block are managed by juliaup !!
 
-path=('/home/renier/.juliaup/bin' $path)
+path=("$HOME/.juliaup/bin" $path)
 export PATH
 
 # <<< juliaup initialize <<<
@@ -91,24 +96,32 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 setopt COMBINING_CHARS
 
-alias vim="NVIM_APPNAME=no-config.nvim nvim"
+# Remap fdfind to fd
+alias fd="fdfind"
 
+# Running multiple neovim configs
+alias cvim="NVIM_APPNAME=Complexity.nvim nvim"
+alias bvim="NVIM_APPNAME=Simplexity.nvim nvim"
+alias svim="NVIM_APPNAME=Simplicity.nvim nvim"
+alias tvim="NVIM_APPNAME=tiny.nvim nvim"
 
 function nvims() {
-  items=("default" "no-config.nvim")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+    items=("no-config" "tiny.nvim" "Simplicity.nvim" "Simplexity.nvim" "Complexity.nvim")
+    config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
 
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "simplexity" ]]; then
-    config=""
-  fi
+    if [[ -z $config ]]; then
+        echo "Nothing selected"
+        return 0
+    fi
+    if [[ $config == "no-config" ]]; then
+        config=""
+    fi
 
-  NVIM_APPNAME=$config nvim"$@"
+    NVIM_APPNAME=$config nvim"$@"
 }
 
 bindkey -s ^a "nvims\n"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
