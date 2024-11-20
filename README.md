@@ -253,24 +253,24 @@ Tick mark displays enabled/ disabled on default config
           - lsp config  
 ### go
 - [ ] [go.nvim](https://github.com/ray-x/go.nvim)  
-          - lsp config
-          - treesitter
+          - lsp config  
+          - treesitter  
           - [guihua.lua](https://github.com/ray-x/guihua.lua)  
 - [ ] [nvim-go](https://github.com/crispgm/nvim-go)  
-          - lsp config
-          - plenary
+          - lsp config  
+          - plenary  
 ### flutter-dart-tailwind
 - [ ] [rest.nvim](https://github.com/rest-nvim/rest.nvim)  
 - [ ] [tailwindcss-colorizer-cmp.nvim](https://github.com/roobert/tailwindcss-colorizer-cmp.nvim)  
 - [ ] [flutter-tools.nvim](https://github.com/nvim-flutter/flutter-tools.nvim)  
-          - plenary
-          - dressing
-          - dap
+          - plenary  
+          - dressing  
+          - dap  
 ### cmake
-- [ ] [cmake-tools.nvim](https://github.com/Civitasv/cmake-tools.nvim)
-          - cmake
-          - dap
-          - [overseer](https://github.com/stevearc/overseer.nvim)
+- [ ] [cmake-tools.nvim](https://github.com/Civitasv/cmake-tools.nvim)  
+          - cmake  
+          - dap  
+          - [overseer](https://github.com/stevearc/overseer.nvim)  
 
 # Overkill much
 Yes it is, but using lazy loading i have gotten loading into nvim down to 50 ms, so it still feels snappy.  
