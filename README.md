@@ -190,6 +190,7 @@ Tick mark displays enabled/ disabled on default config
 - [x] [transparent.nvim](https://github.com/xiyaowong/transparent.nvim)
 - [x] [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [x] [nvim](https://github.com/catppuccin/nvim)
+- [ ] [catpuccin](https://github.com/catppuccin/nvim)
 
 - [ ] [sonokai](https://github.com/sainnhe/sonokai)
 - [ ] [visual_studio_code](https://github.com/askfiy/visual_studio_code)
