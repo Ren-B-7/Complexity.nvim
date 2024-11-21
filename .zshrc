@@ -105,6 +105,7 @@ alias bvim="NVIM_APPNAME=Simplexity.nvim nvim"
 alias svim="NVIM_APPNAME=Simplicity.nvim nvim"
 alias tvim="NVIM_APPNAME=tiny.nvim nvim"
 
+# Select the name of the .config file to run as neovim config
 function nvims() {
     items=("no-config" "tiny.nvim" "Simplicity.nvim" "Simplexity.nvim" "Complexity.nvim")
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
