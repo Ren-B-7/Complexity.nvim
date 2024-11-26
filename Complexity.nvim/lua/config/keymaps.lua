@@ -234,6 +234,4 @@ set("n", "<leader>gb", function()
 	snacks.gitbrowse()
 end, { desc = "Git Browse" })
 
-set("n", "<localleader>z", "<cmd>ZenMode<CR>", { desc = "Enter Zen Mode" })
-
 set("n", "<leader><Bs>", "<cmd>lua require('barbecue.ui').navigate(-1)<CR>", { desc = "Navigate backwards by keyword" })
