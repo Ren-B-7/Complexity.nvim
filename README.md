@@ -121,8 +121,6 @@ Tick mark displays enabled/ disabled on default config
           - lazy git  
 - [x] [mini-git](https://github.com/echasnovski/mini-git)  
 - [x] [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)  
-- [x] [neogit](https://github.com/NeogitOrg/neogit)  
-          - [diffview.nvim](https://github.com/sindrets/diffview.nvim)  
 
 ## Terminal plugins
 - [ ] [wezterm.nvim](https://github.com/willothy/wezterm.nvim) (auto detects to enable)  
