@@ -188,7 +188,7 @@ Tick mark displays enabled/ disabled on default config
 - [x] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [x] [transparent.nvim](https://github.com/xiyaowong/transparent.nvim)
 - [x] [alpha-nvim](https://github.com/goolord/alpha-nvim)
-- [x] [nvim](https://github.com/catppuccin/nvim)
+- [x] [catppuccin nvim](https://github.com/catppuccin/nvim)
 - [x] [catppuccin](https://github.com/catppuccin/nvim)
 
 - [ ] [sonokai](https://github.com/sainnhe/sonokai)
