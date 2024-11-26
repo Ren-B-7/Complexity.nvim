@@ -151,7 +151,7 @@ Tick mark displays enabled/ disabled on default config
 - [x] [trouble.nvim](https://github.com/folke/trouble.nvim) (Show lsp/ syntax issues errors)  
 - [x] [Comment.nvim](https://github.com/numToStr/Comment.nvim) (Select and deselect comment strings)  
 - [x] [which-key.nvim](https://github.com/folke/which-key.nvim) (See key options)  
-- [x] [aerial.nvim](https://github.com/stevearc/aerial.nvim) (easier code navigation, by class/ func)  
+- [x] [outline.nvim](https://github.com/hedyhli/outline.nvim) (easier code navigation, by class/ func)  
 - [x] [snacks.nvim](https://github.com/folke/snacks.nvim) (Large file support and better loading)  
 - [x] [mini.trailspace](https://github.com/echasnovski/mini.trailspace) (Highlight bad spaces)
 - [x] [refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim) (Select and refractor code)
