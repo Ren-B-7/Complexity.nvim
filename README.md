@@ -22,6 +22,7 @@ zip
 rustup  
 python3-pip  
 fd-find  
+lazygit  
 
 # Plugins listed
 Tick mark displays enabled/ disabled on default config  
