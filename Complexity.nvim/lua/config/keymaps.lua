@@ -213,9 +213,6 @@ set("n", "<localleader>oC", function()
 	return require("fold-cycle").close_all()
 end, { remap = true, silent = true, desc = "Fold-cycle: close all folds" })
 
-set("n", "<localleader>at", "<cmd>AerialToggle!<CR>", { desc = "Enable aerial buffer" })
-set("n", "<localleader>an", "<cmd>AerialNavToggle<CR>", { desc = "Enable aerial navigator" })
-
 set("n", "<localleader>h", "<cmd>Alpha<CR>", { desc = "Load startup screen" })
 
 set("n", "<localleader>mt", "<cmd>Neominimap toggle<CR>", { desc = "Toggle the minimap" })
