@@ -5,7 +5,7 @@ return {
 	opts = {
 		window = {
 			backdrop = 0.5, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-			width = 120, -- width of the Zen window
+			width = 0.95
 			height = 1, -- height of the Zen window
 			options = {},
 		},
@@ -26,4 +26,5 @@ return {
 			},
 		},
 	},
+	keys = { { "<localleader><localleader>", "<cmd>ZenMode<cr>", mode = { "n" }, desc = "Toggles ZenMode" } },
 }
