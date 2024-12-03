@@ -171,7 +171,8 @@ Tick mark displays enabled/ disabled on default config
 - [X] [nvim-numbertoggle](https://github.com/sitiom/nvim-numbertoggle) (Highlights current line number)
 
 ## Popups and notifications
-- [x] [mini.notify](https://github.com/echasnovski/mini.notify) (Custom notifications)  
+- [x] [notifier](https://github.com/rcarriga/nvim-notify)  
+          - [lsp-notify](https://github.com/mrded/nvim-lsp-notify)  
 - [x] [popup.nvim](https://github.com/nvim-lua/popup.nvim) (Better popups != notify)  
 - [x] [dressing.nvim](https://github.com/stevearc/dressing.nvim) (Improves on vim.ui defaults)  
 
