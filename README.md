@@ -208,6 +208,9 @@ Tick mark displays enabled/ disabled on default config
 - [x] [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [x] [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 
+## Music player interface  
+- [x] [player.nvim (Personal fork)](https://github.com/Ren-B-7/player.nvim)  
+          - [notifier](https://github.com/rcarriga/nvim-notify) -- optional  
 ## Plugins by language
 ### csharp
 - [ ] [dotnet.nvim](https://github.com/MoaidHathot/dotnet.nvim)  
