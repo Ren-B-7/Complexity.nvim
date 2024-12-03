@@ -39,6 +39,7 @@ require("lazy").setup({
 		{ import = "plugins.general" },
 		{ import = "plugins.session-manager" },
 		{ import = "plugins.folding" },
+		{ import = "plugins.random" },
 		{ import = "plugins.which-key" },
 	},
 	git = { timeout = 500 },
