@@ -5,14 +5,12 @@ A Neovim-lua package for neovim to get everything like vscode
 clone and paste as nvim or as Complexity.nvim (must be ran with "NVIM_APPNAME=Complexity.nvim nvim")
 
 ## Dependencies
- -- ngl im not certain about all of these, most are, some probs not  
-apt-transport-https  
+ -- ngl im not certain about all of these, most are, some probs not   
 curl  
 openssh-client  
 git  
 cmake  
 python3  
-python-is-python3  
 python3.12-venv  
 luarocks  
 ripgrep  
@@ -23,6 +21,7 @@ rustup
 python3-pip  
 fd-find  
 lazygit  
+xclip | xsel | wl_copy  
 
 # Plugins listed
 Tick mark displays enabled/ disabled on default config  
