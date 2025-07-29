@@ -1,6 +1,6 @@
 return {
 	"chrisgrieser/nvim-scissors",
-	dependencies = "nvim-telescope/telescope.nvim",
+	dependencies = "folke/snacks.nvim",
 	lazy = true,
 	config = true,
 	cmd = { "ScissorsAddNewSnippet", "ScissorsEditSnippet" },
@@ -25,9 +25,6 @@ return {
 		backdrop = {
 			enabled = true,
 			blend = 50,
-		},
-		telescope = {
-			alsoSearchSnippetBody = true,
 		},
 	},
 	keys = {

@@ -2,7 +2,7 @@ return {
 	"stevearc/conform.nvim",
 	enabled = true,
 	dependencies = {
-		{ "zapling/mason-conform.nvim", dependencies = { "williamboman/mason.nvim" }, enabled = true },
+		{ "zapling/mason-conform.nvim", dependencies = { "mason-org/mason.nvim" }, enabled = true },
 	},
 	lazy = true,
 	event = { "BufReadPre", "BufNewFile" },
@@ -23,11 +23,10 @@ return {
 
 		require("conform").setup({
 			formatters_by_ft = {
-				bash = { "beautysh" },
-				sh = { "beautysh" },
 				ksh = { "beautysh" },
 				csh = { "beautysh" },
 				zsh = { "beautysh" },
+				sh = { "beautysh" },
 				python = { "black" },
 				py = { "black" },
 				c = { "clang-format" },

@@ -1,7 +1,6 @@
 local g = vim.g
 local opt = vim.opt
 -- local uv = vim.uv
-
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.mapleader = " "
@@ -31,9 +30,14 @@ opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes:1"
 
+-- Show the current  mode for the nvim program
+opt.showmode = false
+
 opt.cursorline = true
 opt.foldcolumn = "1"
 opt.foldenable = true
+opt.foldlevel = 99
+opt.foldlevelstart = 99
 
 opt.tabstop = 4
 opt.softtabstop = 4
@@ -60,17 +64,17 @@ opt.backup = false
 opt.undofile = true
 opt.modifiable = true
 -- Comment this line
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undodir = os.getenv("HOME") .. "/.neovim/undodir"
 
 -- Set nvim clipboard and system clipboard
 opt.clipboard = "unnamedplus"
 
 opt.scrolloff = 5
 opt.columns = vim.api.nvim_win_get_width(0)
-opt.updatetime = 100
+opt.updatetime = 50
 
 opt.termguicolors = true
-opt.equalalways = true
+opt.equalalways = false
 opt.winminwidth = 10
 opt.winwidth = 10
 

@@ -2,13 +2,11 @@ return {
 	"Isrothy/neominimap.nvim",
 	lazy = true,
 	enabled = true,
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPost", "BufRead" },
 	init = function()
 		vim.g.neominimap = {
 			auto_enable = true,
 			exclude_buftypes = {
-				"nofile",
-				"nowrite",
 				"quickfix",
 				"terminal",
 				"prompt",
@@ -19,8 +17,9 @@ return {
 				"help",
 				"git",
 				"git_diffs",
+				"nowrite",
 			},
-			exclude_filetypes = { "commit", "gitcommit", "git_commit", "help", "man" },
+			exclude_filetypes = { "commit", "gitcommit", "git_commit", "help", "man", "markdown", "undotree" },
 			layout = "float",
 			float = {
 				minimap_width = 20,

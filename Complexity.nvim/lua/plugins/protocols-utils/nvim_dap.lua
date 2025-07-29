@@ -3,13 +3,13 @@ return {
 	enabled = true,
 	lazy = true,
 	dependencies = {
-		{ "jay-babu/mason-nvim-dap.nvim", dependencies = { "williamboman/mason.nvim" } },
+		{ "jay-babu/mason-nvim-dap.nvim", dependencies = { "mason-org/mason.nvim" } },
 		"theHamsta/nvim-dap-virtual-text",
 		{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
 	},
 	config = function()
 		require("mason-nvim-dap").setup({
-			ensure_installed = { },
+			ensure_installed = {},
 		})
 
 		require("nvim-dap-virtual-text").setup({
@@ -57,7 +57,7 @@ return {
 	end,
 	keys = {
 		{
-			"<space>gdb",
+			"<space>G",
 			function()
 				require("dap").run_to_cursor()
 			end,

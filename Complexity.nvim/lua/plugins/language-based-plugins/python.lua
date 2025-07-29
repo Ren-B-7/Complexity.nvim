@@ -4,7 +4,18 @@ return {
 	enabled = false,
 	lazy = true,
 	ft = { "python" },
-	config = true,
+	config = function()
+		require("lualine").setup({
+			sections = {
+				lualine_b = {
+					{
+						require("micropython_nvim").statusline,
+						cond = package.loaded["micropython_nvim"] and require("micropython_nvim").exists,
+					},
+				},
+			},
+		})
+	end,
 	opts = {
 		ignore_list = {
 			[".git"] = true,
@@ -19,16 +30,8 @@ return {
 			[".python-version"] = true,
 			[".micropy/"] = true,
 			["micropy.json"] = true,
+			[".vimrc"] = true,
+			[".swp"] = true,
 		},
 	},
-	-- require("lualine").setup({
-	-- sections = {
-	--     lualine_b = {
-	--         {
-	--           require("micropython_nvim").statusline,
-	--           cond = package.loaded["micropython_nvim"] and require("micropython_nvim").exists,
-	--         },
-	--     }
-	-- }
-	-- })
 }

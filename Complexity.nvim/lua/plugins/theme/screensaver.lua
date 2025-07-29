@@ -28,7 +28,19 @@ return {
 		max = 100,
 		interval = 90,
 		screensaver = 1000 * 60 * 5,
-		filetypes = { "dashboard", "alpha", "ministarter", "lazy", "mason", "man", "readonly", "nil", "help" },
+		filetypes = {
+			"dashboard",
+			"alpha",
+			"ministarter",
+			"lazy",
+			"mason",
+			"man",
+			"readonly",
+			"nil",
+			"help",
+			"markdown",
+		},
+
 		winblend = 100,
 	},
 }

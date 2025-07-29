@@ -1,54 +1,36 @@
 return {
-	"mfussenegger/nvim-lint",
-	dependencies = { { "rshkarin/mason-nvim-lint", dependencies = { "williamboman/mason.nvim" } } },
-	lazy = true,
-	event = {
-		"InsertLeave",
-		"InsertEnter",
-	},
-	config = function()
-		require("mason").setup()
-
-		require("mason-nvim-lint").setup({
-			ensure_installed = {
-				"semgrep",
-				"bacon",
-				"cpplint",
-				"quick-lint-js",
-				"pylint",
-				"shellcheck",
-				"selene",
-				"sonarlint-language-server",
-			},
-			automatic_installation = false,
-			quiet_mode = false,
-		})
-
-		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
-		vim.api.nvim_create_autocmd({
-			"BufEnter",
-			"BufWritePost",
+	{
+		"mfussenegger/nvim-lint",
+		dependencies = { "mason-org/mason.nvim" },
+		lazy = true,
+		event = {
 			"InsertLeave",
-		}, {
-			group = lint_augroup,
-			callback = function()
-				require("lint").try_lint(nil, { ignore_errors = true })
-			end,
-		})
+			"InsertEnter",
+		},
+		config = function()
+			require("mason").setup()
 
-		return {
-			linters_by_ft = {
+			require("mason-nvim-lint").setup({
+				ensure_installed = {
+					-- "bacon",
+					"cpplint",
+					"pylint",
+					"shellcheck",
+					"selene",
+				},
+				automatic_installation = false,
+				quiet_mode = true,
+			})
+
+			local lint = require("lint")
+
+			lint.linters_by_ft = {
 				rust = { "bacon" },
 				rs = { "bacon" },
-				c = { "cpplint", "semgrep" },
+				c = { "cpplint" },
 				cpp = { "cpplint" },
-				python = { "pylint", "semgrep" },
-				py = { "pylint", "semgrep" },
-				javascript = { "quick-lint-js", "semgrep" },
-				typescript = { "quick-lint-js", "semgrep" },
-				javascriptreact = { "quick-lint-js" },
-				typescriptreact = { "quick-lint-js" },
+				python = { "pylint" },
+				py = { "pylint" },
 				lua = { "selene" },
 				luau = { "selene" },
 				bash = { "shellcheck" },
@@ -56,27 +38,40 @@ return {
 				zsh = { "shellcheck" },
 				ksh = { "shellcheck" },
 				csh = { "shellcheck" },
-				cs = { "sonarlint-language-server", "semgrep" },
-				csharp = { "sonarlint-language-server", "semgrep" },
-				terraform = { "sonarlint-language-server" },
-				go = { "sonarlint-language-server", "semgrep" },
-				xml = { "sonarlint-language-server" },
-				json = { "semgrep" },
-				java = { "semgrep" },
-				php = { "semgrep" },
-				ruby = { "semgrep" },
-				scala = { "semgrep" },
+			}
+
+			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+
+			vim.api.nvim_create_autocmd({
+				"BufWritePost",
+			}, {
+				group = lint_augroup,
+				callback = function()
+					local ft = vim.bo.filetype
+					if lint.linters_by_ft[ft] then
+						lint.try_lint(nil, { ignore_errors = true })
+					end
+				end,
+			})
+		end,
+		keys = {
+			{
+				"<leader>ml",
+				function()
+					require("lint").try_lint()
+				end,
+				mode = "n",
+				desc = "Trigger linting for file",
 			},
-		}
-	end,
-	keys = {
-		{
-			"<leader>ml",
-			function()
-				require("lint").try_lint()
-			end,
-			mode = "n",
-			desc = "Trigger linting for file",
+		},
+	},
+	{
+		"rshkarin/mason-nvim-lint",
+		lazy = true,
+		enabled = true,
+		dependencies = {
+			"mason-org/mason.nvim",
+			"mfussenegger/nvim-lint",
 		},
 	},
 }

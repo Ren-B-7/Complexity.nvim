@@ -2,51 +2,54 @@ return {
 	"rmagatti/auto-session",
 	lazy = true,
 	enabled = true,
-	event = "VeryLazy",
-	cmd = "Autosession",
+	cmd = {
+		"Autosession",
+		"SessionDelete",
+		"SessionSave",
+		"SessionRestore",
+		"SessionSearch",
+		"SessionPurgeOrphaned",
+		"SessionDisableAutoSave",
+		"SessionToggleAutoSave",
+	},
+	event = { "BufReadPost", "BufNewFile" },
 	init = function()
 		vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 	end,
 	opts = {
-		{
-			enabled = true,
-			root_dir = vim.fn.stdpath("data") .. "/sessions/",
-			auto_save = true,
-			auto_restore = false,
-			auto_create = true,
-			allowed_dirs = nil,
-			auto_restore_last_session = false,
-			use_git_branch = true,
-			lazy_support = true,
-			bypass_save_filetypes = nil,
-			close_unsupported_windows = true,
-			args_allow_single_directory = true,
-			args_allow_files_auto_save = false,
-			continue_restore_on_error = false,
-			cwd_change_handling = false,
-			log_level = "warn",
-
-			session_lens = {
-				load_on_setup = true, -- Initialize on startup (requires Telescope)
-				theme_conf = { -- Pass through for Telescope theme options
-					layout_config = { -- As one example, can change width/height of picker
-						width = 0.8, -- percent of window
-						height = 0.5,
-					},
+		args_allow_files_auto_save = false,
+		args_allow_single_directory = true,
+		auto_create = true,
+		auto_restore = false,
+		auto_restore_last_session = false,
+		auto_save = true,
+		close_unsupported_windows = true,
+		continue_restore_on_error = false,
+		cwd_change_handling = false,
+		enabled = true,
+		git_use_branch_name = true,
+		lazy_support = true,
+		log_level = "warn",
+		root_dir = "/home/renier/.local/share/Complexity.nvim/sessions/",
+		purge_after_minutes = 24 * 60,
+		session_lens = {
+			mappings = {
+				alternate_session = { { "n" }, "<leader>sa" },
+				copy_session = { { "n" }, "<leader>sy" },
+				delete_session = { { "n" }, "<leader>sd" },
+			},
+			picker_opts = {
+				layout = {
+					height = 0.4,
+					width = 0.4,
 				},
-				previewer = true, -- File preview for session picker
-
-				mappings = {
-					-- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
-					-- TODO
-					alternate_session = { { "n", "i" }, "<leader>sa" },
-					copy_session = { { "n", "i" }, "<leader>sy" },
-				},
-
-				session_control = {
-					control_dir = vim.fn.stdpath("data") .. "/auto_session/", -- Auto session control dir, for control files, like alternating between two sessions with session-lens
-					control_filename = "session_control.json", -- File name of the session control file
-				},
+				preset = "dropdown",
+				preview = false,
+			},
+			previewer = true,
+			session_control = {
+				control_dir = "/home/renier/.local/share/Complexity.nvim/auto_session/",
+				control_filename = "session_control.json",
 			},
 		},
 	},

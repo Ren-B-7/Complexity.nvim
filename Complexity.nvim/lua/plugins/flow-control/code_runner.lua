@@ -24,18 +24,16 @@ return {
 		-- 		str = "test-val-2",
 		-- 		num = 3,
 		-- 		bool = true,
-		-- 		var_with_func = function()
 		-- 			-- the value of this var is computed by running this function at runtime
 		-- 			return "test-val"
 		-- 		end,
 		-- 	})
 		-- end,
 		keys = {
-			{ "<localleader>fw", "<cmd>FlowLauncher<CR>", mode = { "n", "v" }, desc = "Show flow telescope" },
-			{ "<localleader>fr", "<cmd>FlowRunfile<CR>", mode = { "n" }, desc = "Show flow telescope" },
-			{ "<localleader>fr", "<cmd>FlowRunSelected<CR>", mode = { "v" }, desc = "Show flow telescope" },
-			{ "<localleader>fl", "<cmd>FlowRunLastCmd<CR>", mode = { "n", "v" }, desc = "Show flow telescope" },
-			{ "<localleader>fo", "<cmd>FlowLastOutput<CR>", mode = { "n", "v" }, desc = "Show flow telescope" },
+			{ "<localleader>flf", "<cmd>FlowRunFile<CR>", mode = { "n" }, desc = "Run file through flow" },
+			{ "<localleader>flr", "<cmd>FlowRunSelected<CR>", mode = { "v" }, desc = "Run selected code via flow" },
+			{ "<localleader>flc", "<cmd>FlowRunLastCmd<CR>", mode = { "n", "v" }, desc = "Rerun  last flow command" },
+			{ "<localleader>flo", "<cmd>FlowLastOutput<CR>", mode = { "n", "v" }, desc = "Show the previous output" },
 		},
 	},
 }

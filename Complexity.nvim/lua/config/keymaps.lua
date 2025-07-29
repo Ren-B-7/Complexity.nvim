@@ -9,53 +9,19 @@ local diagn = vim.diagnostic
 local functions = require("utils.functions")
 local snacks = require("snacks")
 
--- telescope keysets
-set("n", "<leader><leader>", require("telescope.builtin").find_files, { desc = "Find files" })
-set(
-	"n",
-	"<leader>ff",
-	"<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
-	{ desc = "Find files in all directories" }
-)
-set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "Search within files" })
-set("n", "<leader>fi", "<cmd>UrlView lazy<CR>", { desc = "Find all lazy plugin links currently installed" })
-set("n", "<leader>fl", "<cmd>UrlView buffer<CR>", { desc = "Find all lazy plugin links currently installed" })
-set("n", "<leader>fb", "<cmd>Telescope scope buffers<cr>", { desc = "List open buffers" })
-set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Search help tags" })
-set("n", "<leader>fo", require("telescope.builtin").oldfiles, { desc = "Open recently used files" })
-set("n", "<leader>fc", require("telescope.builtin").git_commits, { desc = "Show git commits" })
-set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "View undo history" })
-set("n", "<leader>fp", "<cmd>Telescope ports<CR>", { desc = "View open ports" })
-set(
-	"n",
-	"<leader>ft",
-	"<cmd>TodoTelescope keywords=TODO,"
-		.. "FIX,"
-		.. "TEST,"
-		.. "REMEMBER,"
-		.. "WARNING,"
-		.. "XXX,"
-		.. "FIXME,"
-		.. "FIXIT,"
-		.. "ISSUE,"
-		.. "BUG,"
-		.. "TESTING,"
-		.. "INFO<CR>",
-	{ desc = "View todo comments" }
-)
-set("n", "<leader>fr", "<cmd>Telescope frecency<CR>", { desc = "View frequent files" })
-set("n", "<leader>fz", "<cmd>Telescope zoxide list<CR>", { desc = "View frequent files" })
-set("n", "<leader>fd", "<cmd>Telescope git_diffs diff_commits<CR>", { desc = "View git diffs" })
-set("n", "<leader>fu", "<cmd>Telescope luasnip<CR>", { desc = "View LuaSnip snippets" })
-set("n", "<leader>fs", function()
-	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
-end, { desc = "Search for a string in the current file" })
-
 -- harpoon keymaps
-set("n", "<leader>az", require("harpoon.ui").toggle_quick_menu, { desc = "Toggle Harpoon quick menu" })
-set("n", "<leader>aa", require("harpoon.mark").add_file, { desc = "Add file to Harpoon" })
-set("n", "<leader>aj", require("harpoon.ui").nav_next, { desc = "Navigate to next Harpoon file" })
-set("n", "<leader>ak", require("harpoon.ui").nav_prev, { desc = "Navigate to previous Harpoon file" })
+set("n", "<leader>az", function()
+	require("harpoon.ui").toggle_quick_menu()
+end, { desc = "Toggle Harpoon quick menu" })
+set("n", "<leader>aa", function()
+	require("harpoon.mark").add_file()
+end, { desc = "Add file to Harpoon" })
+set("n", "<leader>aj", function()
+	require("harpoon.ui").nav_next()
+end, { desc = "Navigate to next Harpoon file" })
+set("n", "<leader>ak", function()
+	require("harpoon.ui").nav_prev()
+end, { desc = "Navigate to previous Harpoon file" })
 
 -- lsp keymaps
 set("n", "gd", lsp.definition, { desc = "Go to definition" })
@@ -100,11 +66,6 @@ set(
 	{ desc = "LSP Definitions / references / ... (Trouble)" }
 )
 
--- refactor
-set({ "n", "x" }, "<leader>rf", function()
-	require("telescope").extensions.refactoring.refactors()
-end, { desc = "Show refactoring options" })
-
 -- file tree
 set("n", "<leader>e", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle tree view" })
 set("n", "<leader>h", "<C-\\><C-N><C-w>h", { desc = "Focus on NvimTree" })
@@ -128,6 +89,12 @@ set("n", "<C-Up>", ":resize -2<CR>", { desc = "Decrease window height" })
 set("n", "<C-Down>", ":resize +2<CR>", { desc = "Increase window height" })
 set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
 set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
+
+-- Split windows in different directions
+set({ "n" }, "<localleader-Left>", ":leftabove vsplit<CR>", { desc = "Split left" })
+set({ "n" }, "<localleader-Right>", ":rightbelow vsplit<CR>", { desc = "Split right" })
+set({ "n" }, "<localleader-Up>", ":aboveleft split<CR>", { desc = "Split up" })
+set({ "n" }, "<localleader-Down>", ":belowright split<CR>", { desc = "Split down" })
 
 -- terminal resize
 set("t", "<C-Up>", "<cmd>resize -2<CR>", { desc = "Decrease terminal height" })
@@ -185,12 +152,10 @@ set("n", "<C-_>", "<cmd>WindowsMaximizeVertically<CR>", { desc = "" })
 set("n", "<C-|>", "<cmd>WindowsMaximizeHorizontally<CR>", { desc = "" })
 set("n", "<C-=>", "<cmd>WindowsEqualize<CR>", { desc = "" })
 
-set({ "n", "i" }, "<leader>sf", "<cmd>SessionSearch<CR>", { desc = "Search for saved sessions" })
-set({ "n", "i" }, "<leader>sp", "<cmd>SessionPurgeOrphaned<CR>", { desc = "Removed all orphaned sessions" })
-set({ "n", "i" }, "<leader>ss", "<cmd>SessionSave<CR>", { desc = "Save current session" })
-set({ "n", "i" }, "<leader>sd", "<cmd>SessionDelete<CR>", { desc = "Delete current session" })
-
-set({ "n" }, "<leader>y", "<cmd>Telescope neoclip<CR>", { desc = "Open neoclip yank picker" })
+set({ "n" }, "<leader>sf", "<cmd>SessionSearch<CR>", { desc = "Search for saved sessions" })
+set({ "n" }, "<leader>sp", "<cmd>SessionPurgeOrphaned<CR>", { desc = "Removed all orphaned sessions" })
+set({ "n" }, "<leader>ss", "<cmd>SessionSave<CR>", { desc = "Save current session" })
+set({ "n" }, "<leader>sd", "<cmd>SessionDelete<CR>", { desc = "Delete current session" })
 
 local open = function()
 	return require("fold-cycle").open()
@@ -199,24 +164,24 @@ local close = function()
 	return require("fold-cycle").close()
 end
 
-set("n", "<localleader>oo", open, { desc = "Fold-cycle: open folds" })
+set("n", "<localleader>co", open, { desc = "Fold-cycle: open folds" })
 set("n", "<leader><Right>", open, { desc = "Fold-cycle: open folds" })
 
-set("n", "<localleader>oc", close, { desc = "Fold-cycle: close folds" })
+set("n", "<localleader>cc", close, { desc = "Fold-cycle: close folds" })
 set("n", "<leader><Left>", close, { desc = "Fold-cycle: close folds" })
 
-set("n", "<localleader>oO", function()
+set("n", "<localleader>cO", function()
 	return require("fold-cycle").open_all()
 end, { remap = true, silent = true, desc = "Fold-cycle: open folds" })
 
-set("n", "<localleader>oC", function()
+set("n", "<localleader>cC", function()
 	return require("fold-cycle").close_all()
 end, { remap = true, silent = true, desc = "Fold-cycle: close all folds" })
 
 set("n", "<localleader>h", "<cmd>Alpha<CR>", { desc = "Load startup screen" })
 
-set("n", "<localleader>mt", "<cmd>Neominimap toggle<CR>", { desc = "Toggle the minimap" })
-set("n", "<localleader>mf", "<cmd>Neominimap focus<CR>", { desc = "Focus on minimap" })
+set("n", "<localleader>mt", "<cmd>Neominimap Toggle<CR>", { desc = "Toggle the minimap" })
+set("n", "<localleader>mf", "<cmd>Neominimap Focus<CR>", { desc = "Focus on minimap" })
 
 set("n", "<leader>bd", function()
 	snacks.bufdelete()

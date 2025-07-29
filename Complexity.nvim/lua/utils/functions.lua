@@ -17,7 +17,8 @@ utils.OFF = 0
 utils.notify = function(message, log)
 	log = log or utils.INFO
 	if log ~= utils.OFF then
-		vim.notify(message, log)
+		local status, notify = pcall(require, "notify")
+		return status and notify(message, log) or vim.notify(message, log)
 	end
 end
 
@@ -44,10 +45,9 @@ end
 
 utils.toggle_modifiable = function(log)
 	log = log or utils.INFO
-	utils.notify("Toggle modifiable", log)
 
 	vim.bo.modifiable = not vim.bo.modifiable
-	cmd('echo "modifiable ' .. (vim.bo.modifiable and "true" or "false") .. '"')
+	utils.notify("Set modifiable " .. (vim.bo.modifiable and "true" or "false"), log)
 end
 
 utils.reload_nvim_tree = function(log)
@@ -61,10 +61,9 @@ end
 
 utils.toggle_format_on_save = function(log)
 	log = log or utils.INFO
-	utils.notify("Toggle format on save", log)
 
 	vim.g.autoformat = not vim.g.autoformat
-	cmd('echo "Autoformat ' .. (vim.g.autoformat and "true" or "false") .. '"')
+	utils.notify("Set format on save " .. (vim.g.autoformat and "true" or "false"), log)
 end
 
 return utils

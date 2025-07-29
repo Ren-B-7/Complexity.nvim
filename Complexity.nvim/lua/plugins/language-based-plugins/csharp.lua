@@ -5,7 +5,7 @@ return {
 		lazy = true,
 		ft = { "cs", "csx", "csproj", "sln" },
 		dependencies = {
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 			"mfussenegger/nvim-dap",
 			"Tastyep/structlog.nvim",
 		},
@@ -52,19 +52,5 @@ return {
 		config = function()
 			require("mason").setup()
 		end,
-	},
-	{
-		"MoaidHathot/dotnet.nvim",
-		cmd = "DotnetUI",
-		lazy = true,
-		opts = {
-			bootstrap = {
-				auto_bootstrap = true, -- Automatically call "bootstrap" when creating a new file, adding a namespace and a class to the files
-			},
-			project_selection = {
-				path_display = "filename_first", -- Determines how file paths are displayed. All of Telescope's path_display options are supported
-			},
-		},
-		-- keys = { },
 	},
 }

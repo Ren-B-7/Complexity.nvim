@@ -32,7 +32,7 @@ return {
 		"RRethy/vim-illuminate",
 		enabled = true,
 		lazy = true,
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufRead", "BufNewFile" },
 		config = function()
 			require("illuminate").configure(out)
 		end,
@@ -42,7 +42,7 @@ return {
 		dependencies = {},
 		enabled = true,
 		lazy = true,
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "InsertEnter", "BufNewFile" },
 		opts = {
 			show_warnings = false,
 			highlights = {

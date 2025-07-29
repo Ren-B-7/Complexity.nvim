@@ -1,3 +1,5 @@
+-- LSP integration
+
 local navic_attach = function(client, bufnr)
 	if client.server_capabilities["documentSymbolProvider"] then
 		require("nvim-navic").attach(client, bufnr)
@@ -5,10 +7,57 @@ local navic_attach = function(client, bufnr)
 end
 
 local basedpyright_opts = {
-	on_attach = navic_attach,
+	on_attach = function(client, bufnr)
+		if client.server_capabilities["documentSymbolProvider"] then
+			require("nvim-navic").attach(client, bufnr)
+		end
+		if client.server_capabilities["semanticTokensProvider"] then
+			client.server_capabilities["semanticTokensProvider"] = nil
+		end
+	end,
 	settings = {
 		basedpyright = {
-			analysis = { typeCheckingMode = "standard" },
+			-- Regular pyright options
+			organizeimports = true,
+			reportMissingImports = true,
+			reportDuplicateImport = true,
+			reportUnusedImport = true,
+			reportUnusedClass = true,
+			reportUnusedFunction = true,
+			reportAssertTypeFailure = true,
+			reportIndexIssue = true,
+			reportOptionalCall = false,
+			reportRedaclaration = true,
+			reportTypedDictNotRequiredAccess = true,
+			reportReturnType = false,
+			reportConstantRedefinition = true,
+			reportIncompatibleMethodOverride = true,
+			reportDeprecated = true,
+			reportMissingSuperCall = true,
+			reportUninitializedInstanceVariable = true,
+			reportAssertAlwaysTrue = true,
+			reportUnhashable = true,
+			reportUnusedCallResult = true,
+			reportUnusedCoroutine = true,
+			reportMatchNotExhaustive = true,
+			reportShadowedImports = true,
+			reportImplicitStringConcatenation = true,
+
+			-- Based pyright
+			reportUnusedParameter = true,
+			reportPrivateLocalImportUsage = true,
+			failOnWarnings = true,
+			reportInvalidCast = true,
+			reportImplicitAbstractClass = true,
+			reportAny = true,
+			reportUnknownParameterType = false,
+			reportMissingParameterType = false,
+			reportUnsafeMultipleInheritance = true,
+			analysis = {
+				typeCheckingMode = "basic",
+				diagnosticMode = "openFilesOnly",
+				autoImportCompletions = true,
+			},
 		},
 	},
 }
@@ -37,17 +86,11 @@ local lua_ls_opts = {
 	end,
 	settings = {
 		Lua = {
-			format = {
-				enable = false,
-			},
-			diagnostics = {
-				globals = { "vim", "spec" },
-			},
+			format = { enable = false },
+			diagnostics = { globals = { "vim", "spec" } },
 			runtime = {
 				version = "LuaJIT",
-				special = {
-					spec = "require",
-				},
+				special = { spec = "require" },
 			},
 			workspace = {
 				checkThirdParty = false,
@@ -58,47 +101,60 @@ local lua_ls_opts = {
 			},
 			hint = {
 				enable = true,
-				arrayIndex = "Disable", -- "Enable" | "Auto" | "Disable"
+				arrayIndex = "Disable",
 				await = true,
-				paramName = "Disable", -- "All" | "Literal" | "Disable"
+				paramName = "Disable",
 				paramType = true,
-				semicolon = "All", -- "All" | "SameLine" | "Disable"
+				semicolon = "All",
 				setType = false,
 			},
-			telemetry = {
-				enable = false,
-			},
+			telemetry = { enable = false },
 		},
 	},
 }
 
+local custom_configs = {
+	basedpyright = basedpyright_opts,
+	lua_ls = lua_ls_opts,
+	-- add more server custom configs here if needed
+}
+
 return {
 	{
-		"williamboman/mason.nvim",
-		enabled = true,
+		"mason-org/mason.nvim",
 		lazy = true,
-		dependencies = { "nvim-lua/plenary.nvim" },
-		cmd = {
-			"Mason",
-			"MasonInstall",
-			"MasonUpdate",
-			"MasonLog",
-			"MasonUninstall",
-			"MasonUninstallAll",
-		},
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		lazy = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"neovim/nvim-lspconfig",
-			"williamboman/mason.nvim",
-		},
+		cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonLog" },
+		event = { "UIEnter" },
 		config = function()
 			require("mason").setup()
 
-			require("mason-lspconfig").setup({
+			vim.diagnostic.config({
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = "✘",
+						[vim.diagnostic.severity.WARN] = "▲",
+						[vim.diagnostic.severity.HINT] = "⚑",
+						[vim.diagnostic.severity.INFO] = "»",
+					},
+				},
+				virtual_text = true,
+			})
+		end,
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"neovim/nvim-lspconfig",
+			"mason-org/mason.nvim",
+			"blink.cmp",
+		},
+		lazy = true,
+		event = { "BufAdd" },
+		config = function()
+			local mason_lspconfig = require("mason-lspconfig")
+			mason_lspconfig.setup({
+				automatic_installation = true,
 				ensure_installed = {
 					"lua_ls",
 					"rust_analyzer",
@@ -106,53 +162,23 @@ return {
 					"basedpyright",
 					"clangd",
 					"jdtls",
-					"quick-lint-js",
-				},
-				handlers = {
-					function(server_name)
-						-- ones that are handled else where
-						require("lspconfig")[server_name].setup({
-							on_attach = navic_attach,
-						})
-					end,
-					-- This is not setup yet
-					-- ["rust_analyzer"] = function()
-					--     local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/'
-					--     local codelldb_path = extension_path .. 'adapter/codelldb'
-					--     local liblldb_path = extension_path .. 'lldb/lib/liblldb'
-					--
-					--     liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
-					--
-					--     vim.g.rustaceanvim = {
-					--         -- Plugin configuration
-					--         tools = {
-					--         },
-					--         -- LSP configuration
-					--         server = {
-					--             on_attach = navic_attach,
-					--             default_settings = {
-					--                 ['rust-analyzer'] = {
-					--                 },
-					--             },
-					--         },
-					--         -- DAP configuration
-					--         dap = {
-					--             adapter = require('rustaceanvim.config').get_codelldb_adapter(codelldb_path, liblldb_path),
-					--         },
-					--     }
-					--     require("rustaceanvim").setup()
-					-- end,
-					["lua_ls"] = function()
-						require("lspconfig").lua_ls.setup(lua_ls_opts)
-					end,
-					--["omnisharp"] = function()
-					--	require("csharp").setup()
-					--end,
-					["basedpyright"] = function()
-						require("lspconfig").basedpyright.setup(basedpyright_opts)
-					end,
+					"quick_lint_js",
 				},
 			})
+
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+			for _, server_name in ipairs(mason_lspconfig.get_installed_servers()) do
+				local opts = {
+					capabilities = capabilities,
+				}
+
+				if custom_configs[server_name] then
+					opts = vim.tbl_deep_extend("force", opts, custom_configs[server_name])
+				end
+
+				require("lspconfig")[server_name].setup(opts)
+			end
 
 			vim.diagnostic.config({
 				signs = {
@@ -169,32 +195,35 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
+		lazy = true,
+	},
+	{
+		"zeioth/garbage-day.nvim",
+		lazy = true,
+		event = { "BufNew", "BufAdd" },
+		opts = {
+			aggressive_mode = false,
+			excluded_lsp_clients = {},
+			grace_period = 600,
+			wakeup_delay = 100,
+		},
+		keys = {
 			{
-				"zeioth/garbage-day.nvim",
-				lazy = true,
-				opts = {
-					aggressive_mode = false,
-					excluded_lsp_clients = {},
-					grace_period = 90,
-					wakeup_delay = 100,
-				},
-				keys = {
-					{
-						"<localleader>killa",
-						"<cmd>lua require('garbage-day.utils').stop_lsp()<CR>",
-						mode = "n",
-						desc = "Kill all open lsps",
-					},
-					{
-						"<localleader>killu",
-						"<cmd>lua require('garbage-day.utils').start_lsp()<CR>",
-						mode = "n",
-						desc = "Unkill buffer-linked lsps",
-					},
-				},
+				"<localleader>killa",
+				function()
+					require("garbage-day.utils").stop_lsp()
+				end,
+				mode = "n",
+				desc = "Kill all open lsps",
+			},
+			{
+				"<localleader>killu",
+				function()
+					require("garbage-day.utils").start_lsp()
+				end,
+				mode = "n",
+				desc = "Unkill buffer-linked lsps",
 			},
 		},
-		lazy = true,
 	},
 }

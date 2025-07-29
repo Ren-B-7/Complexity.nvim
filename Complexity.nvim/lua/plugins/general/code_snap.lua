@@ -5,7 +5,7 @@ return {
 	lazy = true,
 	cmd = { "CodeSnap", "CodeSnapSave", "CodeSnapSaveHighlight", "CodeSnapHighlight", "CodeSnapAscii" },
 	config = true,
-	opts = { watermark = "Ren B7", save_path = "~/Pictures" },
+	opts = { watermark = "Ren-B-7", save_path = "~/Pictures/" },
 	keys = {
 		{
 			"<localleader>cc",
@@ -16,8 +16,8 @@ return {
 		{
 			"<localleader>cs",
 			"<cmd>CodeSnapSave<cr>",
-			mode = { "x", "v" },
-			desc = "Save selected code snapshot in ~/Pictures",
+			mode = { "v", "x" },
+			desc = "Save selected code snapshot in ~/Pictures/",
 		},
 	},
 }

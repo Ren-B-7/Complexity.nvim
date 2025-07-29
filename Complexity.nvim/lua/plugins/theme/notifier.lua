@@ -1,24 +1,20 @@
 return {
-	"echasnovski/mini.notify",
-	version = "*",
-	lazy = false,
-	opts = {
-		content = {
-			format = nil,
-
-			sort = nil,
-		},
-		lsp_progress = {
-			enable = true,
-
-			duration_last = 1000,
-		},
-		window = {
-			config = {},
-
-			max_width_share = 0.382,
-
-			winblend = 25,
-		},
+	{
+		"rcarriga/nvim-notify",
+		lazy = true,
+		event = { "UIEnter" },
+		config = true,
+		opts = {},
+	},
+	{
+		"mrded/nvim-lsp-notify",
+		dependencies = { "rcarriga/nvim-notify" },
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("lsp-notify").setup({
+				notify = require("notify"),
+			})
+		end,
 	},
 }

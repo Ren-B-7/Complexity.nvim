@@ -37,9 +37,8 @@ return {
 		},
 		select = {
 			enabled = true,
-			backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+			backend = { "snacks", "fzf_lua", "fzf", "builtin", "nui" },
 			trim_prompt = true,
-			telescope = nil,
 			fzf = {
 				window = {
 					width = 0.5,

@@ -1,5 +1,17 @@
 return {
 	{
+		"MaximilianLloyd/tw-values.nvim",
+		enabled = false,
+		lazy = true,
+		config = true,
+		cmd = { "TWValues" },
+		event = {},
+		opts = {},
+		keys = {
+			{ "<leader>sv", "<cmd>TWValues<cr>", desc = "Show tailwind CSS values" },
+		},
+	},
+	{
 		"nvim-flutter/flutter-tools.nvim",
 		lazy = true,
 		ft = { "tailwind", "css", "html" },
@@ -186,7 +198,6 @@ return {
 				},
 				_log_level = vim.log.levels.WARN,
 			}
-			require("telescope").load_extension("rest")
 		end,
 	},
 }
