@@ -41,25 +41,13 @@ Tick mark displays enabled/ disabled on default config
 - [x] [lspkind.nvim](https://github.com/onsails/lspkind.nvim)  
 
 ### Completion specific  
-
-- [x] [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)  
-- [x] [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)  
-- [x] [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)  
-- [x] [cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)  
-- [x] [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)  
-- [x] [cmp-calc](https://github.com/hrsh7th/cmp-calc)  
-- [x] [cmp-async-path](https://github.com/FelipeLema/cmp-async-path)  
-- [x] [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)  
+- [x] [blink.cmp](https://github.com/Saghen/blink.cmp)  
           - lua snip  
-- [x] [cmp-rg](https://github.com/lukas-reineke/cmp-rg)  
-          - ripgrep  
-- [x] [nvim-autopairs](https://github.com/windwp/nvim-autopairs)   
 
 ### Snippets
 - [x] [LuaSnip](https://github.com/L3MON4D3/LuaSnip) (snippet loader)  
 - [x] [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) (snippet repo)  
-- [x] [nvim-scissors](https://github.com/chrisgrieser/nvim-scissors) (snippet generator)  
-          - telescope  
+- [x] [nvim-scissors](https://github.com/chrisgrieser/nvim-scissors) (snippet generator)    
 
 ### Formatting
 - [x] [conform.nvim](https://github.com/stevearc/conform.nvim)  
@@ -97,24 +85,10 @@ Tick mark displays enabled/ disabled on default config
 - [x] [harpoon](https://github.com/ThePrimeagen/harpoon) (Move faster with marks)  
           - plenary  
 
-## Telescope
+## Picker
 
-### Telescope
-- [x] [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)  
-
-### Telescope additions  
-
-- [x] [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)  
-- [x] [telescope-frecency.nvim](https://github.com/nvim-telescope/telescope-frecency.nvim)  
-- [x] [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim)  
-- [x] [telescope-luasnip.nvim](https://github.com/benfowler/telescope-luasnip.nvim)  
-          - luasnip  
-- [x] [telescope-git-diffs.nvim](https://github.com/paopaol/telescope-git-diffs.nvim)  
-          - git  
-- [x] [telescope-zoxide](https://github.com/jvgrootveld/telescope-zoxide)  
-          - zoxide  
-- [x] [telescope-ports.nvim](https://github.com/LinArcX/telescope-ports.nvim)  
-- [x] [nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)  
+### Picker
+- [x] [snacks.nvim](https://github.com/folke/snacks.nvim)   
 
 ## Git
 - [x] [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)  
@@ -233,9 +207,7 @@ Tick mark displays enabled/ disabled on default config
 ### Micropy
 - [ ] [micropy.nvim](https://github.com/jim-at-jibba/micropython.nvim)  
           - toggleterm  
-          - dressing.nvim  
-### Powershell
-- [ ] [powershell.nvim](https://github.com/TheLeoP/powershell.nvim)  
+          - dressing.nvim   
 ### PHP
 - [ ] [phpactor.nvim](https://github.com/gbprod/phpactor.nvim)  
           - plenary  
@@ -243,7 +215,7 @@ Tick mark displays enabled/ disabled on default config
 - [ ] [php.easy.nvim](https://github.com/ta-tikoma/php.easy.nvim)  
           - lua snip  
 ### markdown
-- [ ] [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)  
+- [ ] [live-preview.nvim](https://github.com/brianhuster/live-preview.nvim/)  
 - [ ] [markdown-toc](https://github.com/ChuufMaster/markdown-toc)  
 - [ ] [edit-markdown-table.nvim](https://github.com/kiran94/edit-markdown-table.nvim)  
           - tree sitter  
