@@ -12,7 +12,8 @@ git
 cmake  
 python3  
 python3.12-venv  
-luarocks    
+luarocks   
+ripgrep  
 npm  
 diffutils  
 zip  
