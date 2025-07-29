@@ -152,6 +152,7 @@ Tick mark displays enabled/ disabled on default config
 
 ## Custom buffer and general
 - [x] [flow.nvim](https://github.com/arjunmahishi/flow.nvim)
+- [x] [zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 - [x] [scratch.nvim](https://github.com/swaits/scratch.nvim)
 - [x] [neominimap.nvim](https://github.com/Isrothy/neominimap.nvim)
 - [x] [codesnap.nvim](https://github.com/mistricky/codesnap.nvim) (Hard to get working!)  
