@@ -152,11 +152,10 @@ Tick mark displays enabled/ disabled on default config
 
 ## Custom buffer and general
 - [x] [flow.nvim](https://github.com/arjunmahishi/flow.nvim)
-- [x] [zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 - [x] [scratch.nvim](https://github.com/swaits/scratch.nvim)
 - [x] [neominimap.nvim](https://github.com/Isrothy/neominimap.nvim)
 - [x] [codesnap.nvim](https://github.com/mistricky/codesnap.nvim) (Hard to get working!)  
-- [x] [cheatsheet.nvim](https://github.com/doctorfree/cheatsheet.nvim)
+- [x] [nvim-early-retirement](https://github.com/chrisgrieser/nvim-early-retirement)
 
 ## Custom themes, and entry screens
 - [x] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
