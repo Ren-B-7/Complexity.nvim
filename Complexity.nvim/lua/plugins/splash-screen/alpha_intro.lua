@@ -65,8 +65,8 @@ local create = function()
 	themeconfig.layout[6] = {
 		type = "group",
 		val = {
-			dashboard.button("e", "  > New file", "<cmd>ene <BAR> startinsert <CR>"),
-			dashboard.button("f", "󰍉  > Find file", "<cmd>lua Snacks.picker.smart()<CR>"),
+			dashboard.button("e", "  > New file", require("utils.functions").create_and_name_file),
+			dashboard.button("f", "󰍉  > Find file", "<cmd>lua Snacks.picker.files()<CR>"),
 			dashboard.button("r", "  > Recent", "<cmd>lua Snacks.picker.recent()<CR>"),
 			dashboard.button(
 				"c",
@@ -105,4 +105,10 @@ return {
 	config = function()
 		require("alpha").setup(create())
 	end,
+	keys = { {
+		"<localleader>h",
+		"<cmd>Alpha<cr>",
+		mode = { "n" },
+		desc = "Open the startup screen",
+	} },
 }

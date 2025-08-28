@@ -1,6 +1,6 @@
 return {
 	"chrisgrieser/nvim-scissors",
-	dependencies = "folke/snacks.nvim",
+	dependencies = { "folke/snacks.nvim" },
 	lazy = true,
 	config = true,
 	cmd = { "ScissorsAddNewSnippet", "ScissorsEditSnippet" },
@@ -29,7 +29,7 @@ return {
 	},
 	keys = {
 		{
-			"<leader>snipp",
+			"<localleader>snipp",
 			function()
 				require("scissors").addNewSnippet()
 			end,
@@ -37,7 +37,7 @@ return {
 			desc = "Add new snippet",
 		},
 		{
-			"<leader>snipe",
+			"<localleader>snipe",
 			function()
 				require("scissors").editSnippet()
 			end,

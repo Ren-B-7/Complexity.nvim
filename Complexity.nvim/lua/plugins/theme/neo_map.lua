@@ -5,7 +5,7 @@ return {
 	event = { "BufReadPost", "BufRead" },
 	init = function()
 		vim.g.neominimap = {
-			auto_enable = true,
+			auto_enable = false,
 			exclude_buftypes = {
 				"quickfix",
 				"terminal",
@@ -79,4 +79,18 @@ return {
 			},
 		}
 	end,
+	keys = {
+		{
+			"<localleader>mt",
+			"<cmd>Neominimap Toggle<cr>",
+			mode = { "n" },
+			desc = "Toggle the mini map",
+		},
+		{
+			"<localleader>mf",
+			"<cmd>Neominimap Focus<cr>",
+			mode = { "n" },
+			desc = "Focus on the mini map",
+		},
+	},
 }

@@ -9,13 +9,31 @@ return {
 	},
 	keys = {
 		{
-			"<localleader>nd",
-			"<cmd>Neogen<cr>",
-			-- function()
-			-- body
-			-- end
+			"<localleader>an",
+			-- "<cmd>Neogen<cr>",
+			function()
+				require("neogen").generate()
+			end,
 			mode = { "n", "v" },
 			desc = "Generate annotations for current context",
+		},
+		{
+			"<localleader>af",
+			-- "<cmd>Neogen<cr>",
+			function()
+				require("neogen").generate({ type = "func" })
+			end,
+			mode = { "n", "v" },
+			desc = "Generate annotations for current func",
+		},
+		{
+			"<localleader>ac",
+			-- "<cmd>Neogen<cr>",
+			function()
+				require("neogen").generate({ type = "class" })
+			end,
+			mode = { "n", "v" },
+			desc = "Generate annotations for current class",
 		},
 	},
 }

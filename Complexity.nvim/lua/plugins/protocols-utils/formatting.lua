@@ -7,10 +7,6 @@ return {
 	lazy = true,
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		local format_root = vim.fs.find(function(name, path)
-			return name:match(".*%.clang-format$")
-		end, { limit = 1, type = "file", path = vim.fn.stdpath("config") })
-
 		require("mason-conform").setup({
 			ensure_installed = {
 				"beautysh",
@@ -62,10 +58,10 @@ return {
 				}
 			end,
 			formatters = {
-				clang_format = {
+				["clang-format"] = {
 					prepend_args = function()
-						local out = format_root and { "--style-file:" .. format_root } or {}
-						table.insert(out, "--fallback-style=webkit")
+						local format_root = require("utils.functions").find_format_file("clang")
+						local out = format_root and { "--style=file:" .. format_root } or {}
 						return out
 					end,
 				},

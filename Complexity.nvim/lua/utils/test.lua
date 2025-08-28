@@ -25,6 +25,18 @@ tests.ui_picker = function()
 	return test
 end
 
+tests.ui_input = function()
+	local test = {}
+	local a = {
+		prompt = "Enter value:",
+		default = "10",
+		completion = "file",
+	}
+	vim.ui.input(a, function(input)
+		vim.print(input or "")
+	end)
+end
+
 tests.server_bind = function()
 	local uv = vim.uv
 	local server = uv.new_tcp()
@@ -39,4 +51,10 @@ tests.server_bind = function()
 	end)
 end
 
+tests.find_format = function()
+	local format_root = vim.fs.find(function(name, path)
+		return name:match("clang%-format$")
+	end, { limit = 1, type = "file", path = vim.fn.stdpath("config") })
+	return format_root
+end
 return tests

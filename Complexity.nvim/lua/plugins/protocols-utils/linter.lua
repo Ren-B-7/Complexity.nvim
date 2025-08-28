@@ -13,7 +13,6 @@ return {
 			require("mason-nvim-lint").setup({
 				ensure_installed = {
 					-- "bacon",
-					"cpplint",
 					"pylint",
 					"shellcheck",
 					"selene",
@@ -27,8 +26,6 @@ return {
 			lint.linters_by_ft = {
 				rust = { "bacon" },
 				rs = { "bacon" },
-				c = { "cpplint" },
-				cpp = { "cpplint" },
 				python = { "pylint" },
 				py = { "pylint" },
 				lua = { "selene" },

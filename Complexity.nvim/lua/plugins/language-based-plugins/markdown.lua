@@ -1,6 +1,5 @@
 return {
-	"https://github.com/brianhuster/live-preview.nvim/",
-	-- dir = "/home/renier/Documents/live_preview/live-preview.nvim/",
+	dir = "/home/renier/Documents/live_preview/live-preview.nvim/",
 	-- "Ren-B-7/live-preview.nvim",
 	lazy = true,
 	enabled = true,
@@ -8,8 +7,8 @@ return {
 	config = true,
 	opts = {
 		port = 42069,
-		-- browser = "flatpak run org.chromium.Chromium",
-		dynamic_root = true,
+		browser = "flatpak run org.chromium.Chromium",
+		dynamic_root = false,
 		sync_scroll = true,
 		picker = "",
 	},

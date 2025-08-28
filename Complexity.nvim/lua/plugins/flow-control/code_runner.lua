@@ -9,8 +9,8 @@ return {
 		config = true,
 		opts = {},
 		keys = {
-			{ "<localleader>sc", "<cmd>Scratch<cr>", desc = "Scratch Buffer", mode = "n" },
-			{ "<localleader>ss", "<cmd>ScratchSplit<cr>", desc = "Scratch Buffer (split)", mode = "n" },
+			{ "<localleader>sb", "<cmd>Scratch<cr>", desc = "Scratch Buffer", mode = "n" },
+			{ "<localleader>sc", "<cmd>ScratchSplit<cr>", desc = "Scratch Buffer (split)", mode = "n" },
 		},
 	},
 	{

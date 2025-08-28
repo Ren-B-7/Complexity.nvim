@@ -11,14 +11,18 @@ return {
 			profiler = { enabled = false },
 			indent = { enabled = false },
 			terminal = { enabled = false },
+			gitbrowse = { enabled = false },
+			lazygit = { enabled = false },
+			zen = { enabled = false },
 
 			bigfile = { enabled = true, disabled = { "latex", "markdown" } },
 			quickfile = { enabled = true },
-			gitbrowse = { enabled = true },
-			lazygit = { enabled = false },
-			zen = { enabled = false },
 			scroll = { enabled = true },
 			scratch = { enabled = true },
+			image = { enabled = true },
+			git = { enabled = true }, -- Gets the git blame of the current line
+			picker = { enabled = true, ui_select = true },
+			input = { enabled = true },
 
 			win = {
 				show = true,
@@ -54,7 +58,7 @@ return {
 		{
 			"<leader><space>",
 			function()
-				Snacks.picker.smart()
+				Snacks.picker.files()
 			end,
 			desc = "Smart Find Files",
 		},
@@ -95,7 +99,7 @@ return {
 		{
 			"<leader>ff",
 			function()
-				Snacks.picker.files()
+				Snacks.picker.smart()
 			end,
 			desc = "Find Files",
 		},
@@ -321,6 +325,13 @@ return {
 			desc = "Quickfix List",
 		},
 		{
+			"<leader>sO",
+			function()
+				Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+			end,
+			desc = "Open config directory",
+		},
+		{
 			"<leader>sR",
 			function()
 				Snacks.picker.resume()
@@ -349,18 +360,11 @@ return {
 			desc = "Select Scratch Buffer",
 		},
 		{
-			"<leader>n",
+			"<leader>nh",
 			function()
 				Snacks.notifier.show_history()
 			end,
 			desc = "Notification History",
-		},
-		{
-			"<leader>bd",
-			function()
-				Snacks.bufdelete()
-			end,
-			desc = "Delete Buffer",
 		},
 		{
 			"<leader>br",
@@ -368,21 +372,6 @@ return {
 				Snacks.rename.rename_file()
 			end,
 			desc = "Rename File",
-		},
-		{
-			"<leader>gB",
-			function()
-				Snacks.gitbrowse()
-			end,
-			desc = "Git Browse",
-			mode = { "n", "v" },
-		},
-		{
-			"<leader>gg",
-			function()
-				Snacks.lazygit()
-			end,
-			desc = "Lazygit",
 		},
 		{
 			"<leader>un",
@@ -397,6 +386,38 @@ return {
 				Snacks.terminal()
 			end,
 			desc = "Toggle Terminal",
+		},
+		{
+			"<leader>Gb",
+			function()
+				Snacks.git.blame_line()
+			end,
+			mode = { "n" },
+			desc = "Gets the blame for the current line in a git repository",
+		},
+		{
+			"<leader>bd",
+			function()
+				Snacks.bufdelete()
+			end,
+			mode = { "n" },
+			desc = "Delete buffer",
+		},
+		{
+			"<leader>bo",
+			function()
+				Snacks.bufdelete.other()
+			end,
+			mode = { "n" },
+			desc = "Delete other buffers",
+		},
+		{
+			"<leader>ba",
+			function()
+				Snacks.bufdelete.all()
+			end,
+			mode = { "n" },
+			desc = "Delete all buffers",
 		},
 	},
 }

@@ -34,4 +34,24 @@ return {
 			dotfiles = false,
 		},
 	},
+	keys = {
+		{
+			"<leader>e",
+			"<cmd>NvimTreeToggle<CR>",
+			desc = "Toggle tree view",
+			mode = "n",
+		},
+		{
+			"<leader>nf",
+			"<cmd>NvimTreeFindFile<CR>",
+			desc = "Navigate to current file with tree",
+			mode = "n",
+		},
+		{
+			"<leader>h",
+			"<cmd>NvimTreeFocus<CR>",
+			desc = "Focus on NvimTree",
+			mode = "n",
+		},
+	},
 }

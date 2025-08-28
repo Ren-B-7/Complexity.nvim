@@ -113,9 +113,23 @@ local lua_ls_opts = {
 	},
 }
 
+local clangd_opts = {
+	cmd = {
+		"clangd",
+		"--fallback-style=file:" .. require("utils.functions").find_format_file("clang"),
+		"--clang-tidy",
+	},
+	settings = {
+		clangd = {
+			diagnostics = { enable = true },
+		},
+	},
+}
+
 local custom_configs = {
 	basedpyright = basedpyright_opts,
 	lua_ls = lua_ls_opts,
+	clangd = clangd_opts,
 	-- add more server custom configs here if needed
 }
 
@@ -125,21 +139,7 @@ return {
 		lazy = true,
 		cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonLog" },
 		event = { "UIEnter" },
-		config = function()
-			require("mason").setup()
-
-			vim.diagnostic.config({
-				signs = {
-					text = {
-						[vim.diagnostic.severity.ERROR] = "✘",
-						[vim.diagnostic.severity.WARN] = "▲",
-						[vim.diagnostic.severity.HINT] = "⚑",
-						[vim.diagnostic.severity.INFO] = "»",
-					},
-				},
-				virtual_text = true,
-			})
-		end,
+		config = true,
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
@@ -150,36 +150,8 @@ return {
 			"blink.cmp",
 		},
 		lazy = true,
-		event = { "BufAdd" },
-		config = function()
-			local mason_lspconfig = require("mason-lspconfig")
-			mason_lspconfig.setup({
-				automatic_installation = true,
-				ensure_installed = {
-					"lua_ls",
-					"rust_analyzer",
-					"omnisharp",
-					"basedpyright",
-					"clangd",
-					"jdtls",
-					"quick_lint_js",
-				},
-			})
-
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-			for _, server_name in ipairs(mason_lspconfig.get_installed_servers()) do
-				local opts = {
-					capabilities = capabilities,
-				}
-
-				if custom_configs[server_name] then
-					opts = vim.tbl_deep_extend("force", opts, custom_configs[server_name])
-				end
-
-				require("lspconfig")[server_name].setup(opts)
-			end
-
+		event = { "BufReadPre" },
+		init = function()
 			vim.diagnostic.config({
 				signs = {
 					text = {
@@ -192,38 +164,59 @@ return {
 				virtual_text = true,
 			})
 		end,
+		config = function()
+			local mason_lspconfig = require("mason-lspconfig")
+			local lspconfig = require("lspconfig")
+
+			mason_lspconfig.setup({
+				ensure_installed = {
+					"lua_ls",
+					"rust_analyzer",
+					"omnisharp",
+					"basedpyright",
+					"clangd",
+					"jdtls",
+					"quick_lint_js",
+				},
+				automatic_enable = false,
+				automatic_installation = true,
+			})
+
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+			-- Iterate installed servers
+			for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
+				local opts = {
+					capabilities = capabilities,
+				}
+
+				if custom_configs[server] then
+					-- merge custom options if they exist
+					opts = vim.tbl_deep_extend("force", opts, custom_configs[server])
+
+					-- optional: rewrite on_attach if needed
+					local orig_on_attach = opts.on_attach
+					opts.on_attach = function(client, bufnr)
+						-- always attach navic if available
+						if client.server_capabilities["documentSymbolProvider"] then
+							require("nvim-navic").attach(client, bufnr)
+						end
+						-- call original on_attach if provided
+						if orig_on_attach then
+							orig_on_attach(client, bufnr)
+						end
+					end
+				else
+					-- default behavior if no custom config
+					opts.on_attach = navic_attach
+				end
+
+				lspconfig[server].setup(opts)
+			end
+		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
 		lazy = true,
-	},
-	{
-		"zeioth/garbage-day.nvim",
-		lazy = true,
-		event = { "BufNew", "BufAdd" },
-		opts = {
-			aggressive_mode = false,
-			excluded_lsp_clients = {},
-			grace_period = 600,
-			wakeup_delay = 100,
-		},
-		keys = {
-			{
-				"<localleader>killa",
-				function()
-					require("garbage-day.utils").stop_lsp()
-				end,
-				mode = "n",
-				desc = "Kill all open lsps",
-			},
-			{
-				"<localleader>killu",
-				function()
-					require("garbage-day.utils").start_lsp()
-				end,
-				mode = "n",
-				desc = "Unkill buffer-linked lsps",
-			},
-		},
 	},
 }

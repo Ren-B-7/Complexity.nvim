@@ -66,4 +66,38 @@ utils.toggle_format_on_save = function(log)
 	utils.notify("Set format on save " .. (vim.g.autoformat and "true" or "false"), log)
 end
 
+utils.create_and_name_file = function(log)
+	log = log or utils.INFO
+
+	local callback = function(input)
+		if input and input ~= "" then
+			local filepath = vim.fs.normalize(vim.fn.fnameescape(vim.uv.cwd() .. "/" .. input)) -- absolute path
+			local dir = vim.fn.fnamemodify(filepath, ":h") -- directory path
+
+			if vim.fn.isdirectory(dir) == 0 then
+				vim.fn.mkdir(dir, "p") -- create parent dirs if needed
+			end
+
+			vim.cmd("edit " .. vim.fn.fnameescape(filepath))
+			vim.cmd("startinsert")
+			utils.notify("New file made: " .. filepath, log)
+		else
+			print("No filename provided")
+		end
+	end
+	local info = {
+		prompt = "Create new file",
+		default = "",
+		completion = "file",
+	}
+	vim.ui.input(info, callback)
+end
+
+utils.find_format_file = function(lsp_name)
+	local files = vim.fs.find(function(name, path)
+		return name:match(lsp_name .. ".*$")
+	end, { limit = 1, type = "file", path = vim.fn.stdpath("config") })
+	return files and files[1] or {}
+end
+
 return utils

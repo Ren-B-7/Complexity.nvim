@@ -20,5 +20,5 @@ return {
 		},
 	},
 	{ "nvim-tree/nvim-web-devicons", event = "VeryLazy", lazy = true },
-	-- { "sitiom/nvim-numbertoggle", lazy = true, event = { "InsertEnter" }, enabled = true },
+	-- { "sitiom/nvim-numbertoggle", lazy = true, event = { "InsertEnter" }, enabled = true }, -- Drastically slows down neovim
 }

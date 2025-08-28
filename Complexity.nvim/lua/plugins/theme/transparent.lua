@@ -51,4 +51,12 @@ return {
 		exclude_groups = { "Mason", "Lazy" },
 		on_clear = function() end,
 	},
+	keys = {
+		{
+			"<leader><localleader>",
+			"<cmd>TransparentToggle<CR>",
+			desc = "Toggle transparent screen",
+			mode = { "n", "v", "x" },
+		},
+	},
 }

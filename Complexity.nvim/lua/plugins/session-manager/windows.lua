@@ -28,9 +28,9 @@ return {
 		},
 	},
 	keys = {
-		{ "<localleader><Left>", "<Cmd>leftabove vsplit<CR>", desc = "Split left", mode = "n" },
-		{ "<localleader><Right>", "<Cmd>rightbelow vsplit<CR>", desc = "Split right", mode = "n" },
-		{ "<localleader><Up>", "<Cmd>aboveleft split<CR>", desc = "Split up", mode = "n" },
-		{ "<localleader><Down>", "<Cmd>belowright split<CR>", desc = "Split down", mode = "n" },
+		{ "<C-w>", "<cmd>WindowsMaximize<CR>", desc = "Maximize window" },
+		{ "<C-a>", "<cmd>WindowsMaximizeVertically<CR>", desc = "Maximize window vertically" },
+		{ "<C-d>", "<cmd>WindowsMaximizeHorizontally<CR>", desc = "Maximize window horizontally" },
+		{ "<C-s>", "<cmd>WindowsEqualize<CR>", desc = "Equalize window sizes" },
 	},
 }
