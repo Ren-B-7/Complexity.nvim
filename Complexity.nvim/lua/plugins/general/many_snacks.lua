@@ -19,7 +19,7 @@ return {
 			quickfile = { enabled = true },
 			scroll = { enabled = true },
 			scratch = { enabled = true },
-			image = { enabled = true },
+			image = { enabled = false },
 			git = { enabled = true }, -- Gets the git blame of the current line
 			picker = { enabled = true, ui_select = true },
 			input = { enabled = true },

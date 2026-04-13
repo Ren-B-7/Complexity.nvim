@@ -50,15 +50,6 @@ utils.toggle_modifiable = function(log)
 	utils.notify("Set modifiable " .. (vim.bo.modifiable and "true" or "false"), log)
 end
 
-utils.reload_nvim_tree = function(log)
-	log = log or utils.INFO
-	utils.notify("Reload Nvim Tree", log)
-
-	require("nvim-tree.api").tree.open()
-	require("nvim-tree.api").tree.reload()
-	require("nvim-tree.api").tree.focus()
-end
-
 utils.toggle_format_on_save = function(log)
 	log = log or utils.INFO
 

@@ -1,6 +1,6 @@
 return {
-	dir = "/home/renier/Documents/live_preview/live-preview.nvim/",
-	-- "Ren-B-7/live-preview.nvim",
+	-- dir = "/home/renier/Documents/live_preview/live-preview.nvim/",
+	"Ren-B-7/live-preview.nvim",
 	lazy = true,
 	enabled = true,
 	ft = { "markdown" },

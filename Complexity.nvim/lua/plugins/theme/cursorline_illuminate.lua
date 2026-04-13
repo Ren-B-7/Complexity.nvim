@@ -1,7 +1,7 @@
 local out = {
 	-- providers: provider used to get references in the buffer, ordered by priority
 	providers = {
-		"treesitter",
+		-- "treesitter",
 		"lsp",
 		"regex",
 	},

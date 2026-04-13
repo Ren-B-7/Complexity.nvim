@@ -11,9 +11,10 @@ return {
 			ensure_installed = {
 				"beautysh",
 				"prettierd",
-				"black",
 				"clang-format",
 				"stylua",
+				"black",
+				"mbake",
 			},
 		})
 
@@ -46,6 +47,7 @@ return {
 				yaml = { "prettierd" },
 				lua = { "stylua" },
 				luau = { "stylua" },
+				make = { "mbake" },
 			},
 			format_on_save = function()
 				if not vim.g.autoformat then
@@ -54,7 +56,7 @@ return {
 				return {
 					lsp_fallback = true,
 					async = false,
-					timeout_ms = 500,
+					timeout_ms = 1000,
 				}
 			end,
 			formatters = {
@@ -64,6 +66,14 @@ return {
 						local out = format_root and { "--style=file:" .. format_root } or {}
 						return out
 					end,
+				},
+				["mbake"] = {
+					command = "mbake",
+					args = {
+						"format",
+						"$FILENAME",
+					},
+					stdin = false,
 				},
 			},
 		})
