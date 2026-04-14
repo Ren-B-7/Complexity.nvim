@@ -17,10 +17,10 @@ return {
 			scope = { enabled = false },
 
 			bigfile = { enabled = true, disabled = { "latex", "markdown" } },
-			quickfile = { enabled = false },
+			quickfile = { enabled = true },
 			scroll = { enabled = true },
 			scratch = { enabled = true },
-			image = { enabled = false },
+			image = { enabled = true },
 			git = { enabled = true }, -- Gets the git blame of the current line
 			picker = { enabled = true, ui_select = true },
 			input = { enabled = true },
