@@ -68,3 +68,6 @@ set("v", ">", ">gv", { desc = "Indent right" })
 -- easy buffer change
 set("n", "<TAB>", "<cmd>bn<CR>", { desc = "Move to next buffer" })
 set("n", "<S-TAB>", "<cmd>bp<CR>", { desc = "Move to previous buffer" })
+
+-- clear search highlight
+set("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear search highlights" })

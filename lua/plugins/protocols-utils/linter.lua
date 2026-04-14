@@ -1,7 +1,7 @@
 return {
 	{
 		"mfussenegger/nvim-lint",
-		dependencies = { "mason-org/mason.nvim", "rshkarin/mason-nvim-lint" },
+		dependencies = { "williamboman/mason.nvim", "rshkarin/mason-nvim-lint" },
 		lazy = true,
 		event = {
 			"InsertLeave",
@@ -104,7 +104,7 @@ return {
 		lazy = true,
 		enabled = true,
 		dependencies = {
-			"mason-org/mason.nvim",
+			"williamboman/mason.nvim",
 		},
 	},
 }

@@ -64,26 +64,6 @@ local basedpyright_opts = {
 
 local lua_ls_opts = {
 	on_attach = navic_attach,
-	on_init = function(client)
-		if client.workspace_folders then
-			local path = client.workspace_folders[1].name
-			if vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc") then
-				return nil
-			end
-		end
-
-		client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-			runtime = {
-				version = "LuaJIT",
-			},
-			workspace = {
-				checkThirdParty = true,
-				library = {
-					vim.env.VIMRUNTIME,
-				},
-			},
-		})
-	end,
 	settings = {
 		Lua = {
 			format = { enable = false },
@@ -94,10 +74,6 @@ local lua_ls_opts = {
 			},
 			workspace = {
 				checkThirdParty = false,
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "/lua"] = true,
-				},
 			},
 			hint = {
 				enable = true,
@@ -135,18 +111,18 @@ local custom_configs = {
 
 return {
 	{
-		"mason-org/mason.nvim",
+		"williamboman/mason.nvim",
 		lazy = true,
 		cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonLog" },
 		event = { "UIEnter" },
 		config = true,
 	},
 	{
-		"mason-org/mason-lspconfig.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"neovim/nvim-lspconfig",
-			"mason-org/mason.nvim",
+			"williamboman/mason.nvim",
 			"blink.cmp",
 		},
 		lazy = true,
