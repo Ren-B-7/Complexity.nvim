@@ -14,9 +14,10 @@ return {
 			gitbrowse = { enabled = false },
 			lazygit = { enabled = false },
 			zen = { enabled = false },
+			scope = { enabled = false },
 
 			bigfile = { enabled = true, disabled = { "latex", "markdown" } },
-			quickfile = { enabled = true },
+			quickfile = { enabled = false },
 			scroll = { enabled = true },
 			scratch = { enabled = true },
 			image = { enabled = false },

@@ -5,7 +5,7 @@ return {
 		ft = { "yaml" },
 		enabled = false,
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
+			"romus204/tree-sitter-manager.nvim",
 			"nvim-telescope/telescope.nvim", -- optional
 		},
 	},
