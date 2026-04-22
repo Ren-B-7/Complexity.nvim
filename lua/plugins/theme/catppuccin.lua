@@ -145,7 +145,6 @@ local opts = {
 		},
 		nvimtree = true,
 		nvim_surround = true,
-		telescope = { enabled = true },
 		treesitter = true,
 		treesitter_context = true,
 		which_key = true,

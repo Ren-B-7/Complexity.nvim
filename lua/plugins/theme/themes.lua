@@ -38,7 +38,6 @@ return {
 					which_key = true,
 					nvim_tree = true,
 					lspconfig = true,
-					telescope = true,
 					bufferline = true,
 					nvim_navic = true,
 					nvim_notify = true,
