@@ -31,7 +31,7 @@ return {
 	dependencies = {
 		"kevinhwang91/promise-async",
 	},
-	event = { "BufReadPost", "BufNewFile" }, -- ensures it's loaded after file is read
+	event = { "VeryLazy" }, -- ensures it's loaded after file is read
 	opts = {
 		open_fold_hl_timeout = 100,
 		close_fold_kinds_for_ft = { default = { "imports", "comment" } },
