@@ -7,6 +7,7 @@ end
 return {
 	"jghauser/fold-cycle.nvim",
 	lazy = true,
+
 	enabled = true,
 	dependencies = {
 		"kevinhwang91/nvim-ufo",

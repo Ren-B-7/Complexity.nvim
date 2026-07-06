@@ -71,3 +71,6 @@ set("n", "<S-TAB>", "<cmd>bp<CR>", { desc = "Move to previous buffer" })
 
 -- clear search highlight
 set("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear search highlights" })
+
+set("v", "//", "y/\\V<C-R>=escape(@\", '/\\')<CR><CR>", { desc = "Search for the highlighted text" })
+set("v", "??", "y?\\V<C-R>=escape(@\", '?\\')<CR><CR>", { desc = "Search for the highlighted text (reversed)" })

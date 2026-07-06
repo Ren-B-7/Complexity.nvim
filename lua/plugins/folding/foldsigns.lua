@@ -2,7 +2,7 @@ return {
 	{
 		"lewis6991/foldsigns.nvim",
 		lazy = true,
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufRead", "BufNewFile" },
 		enabled = false,
 		config = true,
 		opts = { exclude = { "GitSigns.*" } },
